@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
 
   namespace :api do
-    resources :licences do
+    resources :licenses do
       resources :checkouts
     end
   end

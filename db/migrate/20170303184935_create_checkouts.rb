@@ -6,9 +6,9 @@ class CreateCheckouts < ActiveRecord::Migration[5.0]
       t.string :street, null: false
       t.string :city, null: false
       t.string :state, null: false
-      t.integer :zip, null: false
-      t.integer :credit_number, null: false
-      t.integer :code, null: false
+      t.string :zip, null: false
+      t.string :credit_number, null: false
+      t.string :code
       t.belongs_to :license 
       t.timestamps
     end

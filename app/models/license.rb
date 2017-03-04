@@ -1,4 +1,4 @@
 class License < ApplicationRecord
-  validates_presence_of :type, :price
-  has_one :checkout
+  validates_presence_of :license_type, :price
+  has_many :checkouts
 end

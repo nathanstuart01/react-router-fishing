@@ -3,16 +3,14 @@ class Api::CheckoutsController < ApplicationController
   before_action :set_checkout, only: [:show, :edit, :update, :destroy]
 
   def show
-    checkout = { checkout: { first_name: @license.checkouts.first_name, last_name: @license.checkouts.last_name,
-                             street: @license.checkouts.street, city: @license.checkouts.city, state: @state.checkouts.state,
-                             zip: @license.checkouts.zip, credit_number: @license.checkouts.credit_number,
-                             code: @license.checkouts.code
-                           } }
+    checkout = { checkout: @license.checkouts.find(params[:id]),
+                 license: @license }
     render json: checkout
   end
 
   def create
     @checkout = @license.checkouts.create(checkout_params)
+    @checkout.code = Faker::Code.imei
     if @checkout.save
       render json: @checkout
     else
