@@ -30,7 +30,10 @@ class License extends React.Component {
   display() {
     return(
       <div>
-        <div id='card' className='col s12 m4'>
+        <h2>Fishing Licenses and Deals</h2><hr />
+        <h5>Here you can select which license you would like to buy! Each individual license is $15.00. 
+          If you have a group of 3, buy the group license package to get a discounted rate!</h5><br /><br />
+        <div className='card'>
           <h3>Individual License</h3>
           <br />
           <img
@@ -42,9 +45,9 @@ class License extends React.Component {
          <br />
          <button
          onClick={this.toggleCheckout}
-         className='btn'>Purchase License</button>
+         className='btn'>Purchase License</button><br /><br />
         </div>
-        <div className='col s12 m4'>
+        <div className='card'>
            <h3>Group License</h3>
            <br />
            <img
@@ -88,7 +91,8 @@ class License extends React.Component {
     return(
       <div className='col s12 m4'>
         <form onSubmit={ this.handlePurchase }>
-          <input type='text' ref='first_name' required placeholder='first_name' />
+          <h3>Enter Information for your fishing license</h3><hr />
+          <input type='text' ref='first_name' required placeholder='first_name' autoFocus/>
           <input type='text' ref='last_name' required placeholder='last_name' /><br />
           <input type='text' ref='street' required placeholder='street' />
           <input type='text' ref='city' required placeholder='city' />

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 
 const Nav = ({}) => (
-  <nav>
+  <nav className='green darken-2'>
     <div className="nav-wrapper">
       <a href="#!" className="brand-logo">Fishing License</a>
       <a href="#" data-activates="mobile-demo" className="button-collapse"><i className="material-icons">menu</i></a>
