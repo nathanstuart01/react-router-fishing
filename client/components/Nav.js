@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 const Nav = ({}) => (
   <nav className='green darken-2'>
     <div className="nav-wrapper">
-      <a href="#!" className="brand-logo">Fishing License</a>
+      <Link to='/'>Fishing License</Link>
       <a href="#" data-activates="mobile-demo" className="button-collapse"><i className="material-icons">menu</i></a>
       <ul className="right hide-on-med-and-down">
         <li><Link to='/about_us' >About Us</Link></li>

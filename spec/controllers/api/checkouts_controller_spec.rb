@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe CheckoutsController, type: :controller do
+RSpec.describe Api::CheckoutsController, type: :controller do
 
   describe "GET #index" do
     it "returns http success" do

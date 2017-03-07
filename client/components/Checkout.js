@@ -11,13 +11,15 @@ class Checkout extends React.Component {
   }
 
   componentDidMount() {
+    $('.modal').modal();
+
     $.ajax({
       url: `/api/licenses/1/checkouts/${this.props.params.id}`,
       type: 'GET'
     }).done( data => {
       this.setState({ license: data.license, checkout: data.checkout})
     }).fail( error => {
-      console.log(error)
+      console.log(error);
     })
   }
 
@@ -41,14 +43,8 @@ class Checkout extends React.Component {
       url: `/api/licenses/${license_id}/checkouts/${id}`,
       type: 'PUT',
       data: { checkout: { first_name, last_name, street, city, state, zip, credit_number, id } }
-    }).done( data => {
-      let checkouts = this.props.checkouts.map( checkout => {
-        if(checkout.id === id )
-          return data 
-        else 
-          return checkout
-      })
-      this.setState({ checkouts })
+    }).done( checkout => {
+      this.setState({checkout})
     }).fail(data => {
       console.log(data);
     });
@@ -81,11 +77,21 @@ class Checkout extends React.Component {
             <li>Address: {checkout.street}</li>
             <li>{checkout.city}, {checkout.state} {checkout.zip}</li>
             <li>Credit Card: {checkout.credit_number}</li>
-            <button type='button' data-target="modal1" className="btn" onClick={ this.modalDisplay }>Confirm</button>
+            <a className="btn" href="#modal1">Confirm</a>
             <button type='submit' className='btn' onClick={ this.toggleEdit }>Edit Info</button><br />
             <button type='button' className='btn' onClick={ () => this.deleteCheckout(checkout.licence_id, checkout.id ) }>Cancel Purchase</button>
           </ul>
-        </div>
+            <div id="modal1" className="modal bottom-sheet">
+            <div className="modal-content">
+              <h4>Fishing License Receipt</h4>
+              <p>Congratulations! You purchased your Fishing License. Be sure to save your code to redeem.</p>
+              <h3>Here is your License Code: { Math.floor((Math.random() * 10005730) + 1)}</h3>
+            </div>
+            <div className="modal-footer">
+              <a href="#!" className=" modal-action modal-close waves-effect waves-green btn-flat">Okay</a>
+            </div>
+          </div>
+        </div>  
       );
     } else {
       return(

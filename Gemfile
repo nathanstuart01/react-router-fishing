@@ -31,7 +31,16 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'pry'
   gem 'rspec-rails', '~> 3.5'
+
 end
+
+group :test do 
+  gem 'shoulda-matchers'
+  gem 'database_cleaner'
+  gem 'factory_girl_rails'
+  gem 'rails-controller-testing'
+  gem 'simplecov', require: false 
+end 
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.

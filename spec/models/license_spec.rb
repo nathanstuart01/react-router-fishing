@@ -1,5 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe License, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe 'validations' do
+    it { should validate_presence_of :license_type }
+    it { should validate_presence_of :price }
+  end 
+
+  describe 'associations' do 
+    it { should have_many :checkouts }
+  end 
+
+
 end

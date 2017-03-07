@@ -5,11 +5,7 @@ import Checkout from './Checkout';
 class License extends React.Component {
   constructor(props) {
     super(props);
-    let license = { id:1,
-                  type:'Individual',
-                  price:15.0
-                };
-    this.state = {licenses: [license], checkout: false, checkouts: [] }
+    this.state = {licenses: [], checkout: false, checkouts: [] }
   }
 
   componentDidMount() {
